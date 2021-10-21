@@ -38,8 +38,8 @@ const useStyles = makeStyles(() => ({
     fontFamily: "Open Sans, sans-serif",
     // fontWeight: 700,
     // color: "#3F3F3F",
-     float:"left",
-    marginLeft: "28px",
+    float: "rogj",
+    marginLeft: "08px",
     fontWeight: 500,
     color: "#1e1e1e",
     fontSize: "0.9rem",
@@ -64,14 +64,14 @@ const useStyles = makeStyles(() => ({
     size: "7px",
     marginLeft: "2px",
     background: "linear-gradient(rgb(2,136,209) 0%,rgb(3,169,244)  100%) 0% 0% no-repeat transparent",
-    width:"8vw",
+    width: "8vw",
     height: "2.2rem",
     fontSize: "0.6rem",
     textAlign: "center"
   },
   marketingPageSiginButton: {
-    border:"1px solid rgb(2,136,209)",
-    color:"rgb(2,136,209)",
+    border: "1px solid rgb(2,136,209)",
+    color: "rgb(2,136,209)",
     borderRadius: "1.5rem",
     alignItems: "center",
     padding: "0 1.75rem",
@@ -80,7 +80,7 @@ const useStyles = makeStyles(() => ({
     size: "7px",
     marginLeft: "2px",
     // background: "linear-gradient(rgb(2,136,209) 0%,rgb(3,169,244)  100%) 0% 0% no-repeat transparent",
-    width:"8vw",
+    width: "8vw",
     height: "2.2rem",
     fontSize: "0.6rem",
     textAlign: "center"
@@ -88,7 +88,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function Header() {
-  const { marketingPageSiginButton,marketingPageButton, header, logo, menuButton, toolbar, drawerContainer } = useStyles();
+  const { marketingPageSiginButton, marketingPageButton, header, logo, menuButton, toolbar, drawerContainer } = useStyles();
   const headersData = [
     {
       label: "Listings",
@@ -109,14 +109,14 @@ export default function Header() {
       label: "Get started",
       href: "/logout",
       type: "button",
-      _class:marketingPageButton
-  
+      _class: marketingPageButton
+
     },
     {
       label: "Sign in",
       href: "/logout",
       type: "button",
-      _class:marketingPageSiginButton
+      _class: marketingPageSiginButton
     },
   ];
   const [state, setState] = useState({
@@ -151,20 +151,18 @@ export default function Header() {
     return (
       <Toolbar className={toolbar}>
         <Grid container>
-          <Grid item xs={1} style={{border:"0px solid red"}}></Grid>
-          <Grid item xs={1} style={{border:"0px solid green"}}>
-            <img src={logoImage}/>
+          <Grid item xs={2} style={{ paddingTop: "05px", border: "0px solid green" }}>
+            <img src={logoImage} style={{ float: "right" }} />
           </Grid>
 
-          <Grid item xs={6}style={{border:"0px solid blue",marginTop:"10px"}} >
-            <div>{getLeftMenuButtons()}</div>
+          <Grid item xs={6} style={{ border: "0px solid blue", marginTop: "14px" }} >
+            <div style={{ float: "left" }}>{getLeftMenuButtons()}</div>
           </Grid>
 
-          <Grid item xs={3} style={{border:"0px solid purple"}}>
+          <Grid item xs={4} style={{ paddingTop: "15px", border: "00px solid purple" }}>
             <div >{getMenuButtons()}
             </div>
           </Grid>
-          <Grid item xs={1}style={{border:"0px solid red"}}></Grid>
 
         </Grid>
 
@@ -180,7 +178,7 @@ export default function Header() {
       setState((prevState) => ({ ...prevState, drawerOpen: false }));
 
     return (
-      <Toolbar>
+      <Toolbar style={{border:" 0px solid green"}}>
         <IconButton
           {...{
             edge: "start",
@@ -203,18 +201,14 @@ export default function Header() {
           <div className={drawerContainer}>{getDrawerChoices()}</div>
         </Drawer>
 
-        <div>            <img src={logoImage}/>
-</div>
+        <div>            <img src={logoImage} />
+        </div>
         <div style={{ width: "30%" }}></div>
-        <Toolbar className={toolbar}  >
           {
-            tableView && <div style={{border:"0px solid red",marginLeft:"200px"}}>{getMenuButtons()}        </div>
+            tableView && <div style={{ border: "0px solid red",marginLeft:'auto' }}>{getMenuButtons()}        </div>
 
           }
-
-
-
-        </Toolbar>
+     
       </Toolbar>
     );
   };
@@ -244,7 +238,7 @@ export default function Header() {
   );
 
   const getMenuButtons = () => {
-    return headersData.map(({ label, href, _class ,type = 'anchor' }) => {
+    return headersData.map(({ label, href, _class, type = 'anchor' }) => {
       if (type == 'anchor') {
 
       } else {
@@ -262,7 +256,7 @@ export default function Header() {
             {label}
           </Button>
         );
-       
+
       }
     });
   };
@@ -283,7 +277,7 @@ export default function Header() {
               className: menuButton,
 
             }}
-            style={{fontWeight:"bold"}}
+            style={{ fontWeight: "bold" }}
           >
             {label}
           </Button>
